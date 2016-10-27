@@ -10,38 +10,21 @@
  var scriptUrl = scriptDOM.src;
 
 /* Function to request files */
-function getFile(sUrl, reqCallback = null, thisPtr = null) {
+function getFile(sUrl) {
   // Init request
   var oReq = new XMLHttpRequest();
 
-  if (reqCallback && thisPtr)
-  {
-    // Sending request
-    oReq.open("get", sUrl, true);
-    oReq.overrideMimeType("text/plain");
+  // Sending request
+  oReq.open("get", sUrl, false);
+  oReq.overrideMimeType("text/plain");
+  oReq.send(null);
 
-    // Getting response
-    oReq.onreadystatechange = function() {
-      if (oReq.readyState == 4 && (oReq.status == 200 || oReq.status === 0)) {
-        reqCallback(oReq.responseText, thisPtr);
-      }
-    };
-
-    oReq.send(null);
-  }else {
-    // Sending request
-    oReq.open("get", sUrl, false);
-    oReq.overrideMimeType("text/plain");
-    oReq.send(null);
-
-    // Getting response
-    if (oReq.readyState == 4 && (oReq.status == 200 || oReq.status === 0)) {
-     return oReq.responseText;
-    } else {
-     return undefined;
-    }
+  // Getting response
+  if (oReq.readyState == 4 && (oReq.status == 200 || oReq.status === 0)) {
+   return oReq.responseText;
+  } else {
+   return undefined;
   }
-
 }
 
 /* Main class */
@@ -49,12 +32,6 @@ class LocaleKeyboard {
   constructor() {
     /* Create the baseUrl */
     this.baseUrl = scriptUrl.substring(0, scriptUrl.lastIndexOf("/"));
-
-    /* Getting locales */
-    getFile(this.baseUrl + "/locales/localeList", function(reqAnsw, thisPtr) {
-      thisPtr.localeArray = reqAnsw.split('\n');
-      thisPtr.localeArray.pop();
-    }, this);
 
     /* Locale is not set */
     this.localeSet = false;
@@ -97,6 +74,12 @@ class LocaleKeyboard {
 
   listLocales() {
     /* List all files *.lang in locales/ dir */
+    if (!this.localeArray) {
+      this.localeArray = getFile(this.baseUrl + "/locales/localeList").split('\n');
+      this.localeArray.pop();
+    }
+
+    /* Return the list */
     return this.localeArray;
   }
 }
