@@ -1,4 +1,3 @@
-/* Locale define */
 
 
 uint8_t USBPutChar(uint8_t c);

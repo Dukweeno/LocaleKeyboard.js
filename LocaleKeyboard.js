@@ -27,29 +27,37 @@ function getFile(sUrl) {
 /* Main class */
 class LocaleKeyboard {
   constructor(lang) {
-    /* Create the path */
-    this.baseUrl = scriptUrl.substring(0, scriptUrl.lastIndexOf("/"));
+    /* Define lang */
     this.lang = lang;
 
-    /* Get files */
-    var langFile = getFile(baseUrl + "/locales/" + this.lang + ".lang");
-    var libPartOne = getFile(baseUrl + "/src/LocaleKeyboard-@1.cpp");
-    var libPartTwo = getFile(baseUrl + "/src/LocaleKeyboard-@2.cpp");
-    this.localeList = getFile(baseUrl + "/locales/localeList");
+    /* Create the path */
+    this.baseUrl = scriptUrl.substring(0, scriptUrl.lastIndexOf("/"));
 
-    /* Set all this into var */
-    this.libSource = libPartOne + langFile + libPartTwo;
-    this.libHeader = getFile(baseUrl + "/src/LocaleKeyboard.h");
+    /* Get the localeList */
+    this.localeList = getFile(this.baseUrl + "/locales/localeList").split('\n')
+    this.localeList.pop();
+
+    /* Check for lang existence in localeList */
+    if (this.localeList.indexOf(this.lang) == -1) {
+      console.error("Error: This locale doesn't exist !");
+      delete this.LocaleKeyboard;
+      return;
+    }
   }
 
   getSource() {
+    /* Get files */
+    var langFile = getFile(this.baseUrl + "/locales/" + this.lang + ".lang");
+    var libPartOne = getFile(this.baseUrl + "/src/LocaleKeyboard-@1.cpp");
+    var libPartTwo = getFile(this.baseUrl + "/src/LocaleKeyboard-@2.cpp");
+
     /* Just return the modified lib */
-    return this.libSource;
+    return libPartOne + langFile + libPartTwo;
   }
 
   getHeader() {
     /* Just return the header */
-    return this.libHeader;
+    return getFile(this.baseUrl + "/src/LocaleKeyboard.h");
   }
 
   listLocales() {

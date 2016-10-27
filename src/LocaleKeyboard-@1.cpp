@@ -81,5 +81,3 @@ void Keyboard_::sendReport(KeyReport* keys)
 
 extern
 const uint8_t _asciimap[128] PROGMEM;
-
-/* Locale define */
