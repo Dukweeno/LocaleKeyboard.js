@@ -11,7 +11,7 @@ class LocaleKeyboard {
   constructor(lang) {
     /* Create the path */
     var baseUrl = scriptUrl.substring(0, scriptUrl.lastIndexOf("/"));;
-    var subDir = "/lang";
+    var subDir = "/locales";
 
     /* Lang file */
     var langPath = baseUrl + subDir + '/' + lang + ".lang";
