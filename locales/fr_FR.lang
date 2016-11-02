@@ -44,7 +44,7 @@ const uint8_t _asciimap[128] =
  	0x20,          // # :TODO
  	0x30,          // $
  	0x34|SHIFT,    // %
- 	0x1E,          // &
+ 	0x1e,          // &
  	0x21,          // '
  	0x22,          // (
  	0x2d,          // )
@@ -70,7 +70,7 @@ const uint8_t _asciimap[128] =
  	0x2e,          // =
  	0x64|SHIFT,      // >
  	0x10|SHIFT,      // ?
- 	0x1f,            // @ :TODO
+  0xa7,            // @ :TODO
  	0x14|SHIFT,      // A
  	0x05|SHIFT,      // B
  	0x06|SHIFT,      // C
@@ -100,7 +100,7 @@ const uint8_t _asciimap[128] =
  	0x0c,          // [ :TODO
  	0x31,          // bslash
  	0x0d,          // ] :TODO
- 	0x2F,          // ^
+ 	0x2f,          // ^
  	0x25,          // _
  	0x35,          // ` :TODO
  	0x14,          // a
@@ -129,7 +129,7 @@ const uint8_t _asciimap[128] =
  	0x1b,          // x
  	0x1c,          // y
  	0x1a,          // z
- 	0x2f|SHIFT,    // {
+ 	0x2f|SHIFT,    // { :TODO
  	0x31|SHIFT,    // | :TODO
  	0x30|SHIFT,    // } :TODO
  	0x35|SHIFT,    // ~ :TODO
