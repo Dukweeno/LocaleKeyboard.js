@@ -58,8 +58,8 @@ class LocaleKeyboard {
 
     /* Get files */
     var langFile = getFile(this.baseUrl + "/locales/" + this.lang + ".lang");
-    var libPartOne = getFile(this.baseUrl + "/src/LocaleKeyboard-@1.cpp");
-    var libPartTwo = getFile(this.baseUrl + "/src/LocaleKeyboard-@2.cpp");
+    var libPartOne = getFile(this.baseUrl + "/src/Keyboard-@1.cpp");
+    var libPartTwo = getFile(this.baseUrl + "/src/Keyboard-@2.cpp");
 
     /* Just return the modified lib */
     return libPartOne + langFile + libPartTwo;
@@ -69,7 +69,7 @@ class LocaleKeyboard {
     if (!this.localeSet) {console.error("Error: Locale is not set !"); return undefined;}
 
     /* Just return the header */
-    return getFile(this.baseUrl + "/src/LocaleKeyboard.h");
+    return getFile(this.baseUrl + "/src/Keyboard.h");
   }
 
   listLocales() {
