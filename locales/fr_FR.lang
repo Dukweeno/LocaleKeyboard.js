@@ -42,7 +42,7 @@ const uint8_t _asciimap[128] =
  	0x2c,		   //  ' '
  	0x38,	         // !
  	0x20,          // "
- 	0x20,          // # :TODO
+ 	0x20|ALTGR,    // #
  	0x30,          // $
  	0x34|SHIFT,    // %
  	0x1e,          // &
@@ -98,12 +98,12 @@ const uint8_t _asciimap[128] =
  	0x1b|SHIFT,      // X
  	0x1c|SHIFT,      // Y
  	0x1a|SHIFT,      // Z
- 	0x0c,          // [ :TODO
- 	0x31,          // bslash :TODO
- 	0x0d,          // ] :TODO
- 	0x2f,          // ^
+ 	0x22|ALTGR,    // [
+ 	0x25|ALTGR,    // bslash
+ 	0x2d|ALTGR,    // ]
+ 	0x26|ALTGR,    // ^
  	0x25,          // _
- 	0x35,          // ` :TODO
+ 	0x24|ALTGR,    // `
  	0x14,          // a
  	0x05,          // b
  	0x06,          // c
@@ -130,9 +130,9 @@ const uint8_t _asciimap[128] =
  	0x1b,          // x
  	0x1c,          // y
  	0x1a,          // z
- 	0x2f|SHIFT,    // { :TODO
- 	0x31|SHIFT,    // | :TODO
- 	0x30|SHIFT,    // } :TODO
- 	0x35|SHIFT,    // ~ :TODO
+ 	0x21|ALTGR,    // {
+ 	0x23|ALTGR,    // |
+ 	0x2e|ALTGR,    // }
+ 	0x1f|ALTGR,    // ~
  	0				// DEL
 };
