@@ -23,6 +23,10 @@ size_t Keyboard_::press(uint8_t k)
 			_keyReport.modifiers |= 0x02;	// the left shift modifier
 			k &= 0x7F;
 		}
+    if (k & 0x40) {           // it's an altgr key
+      _keyReport.modifiers |= 0x40; // the altGr key
+      k &= 0x3F;
+    }
 	}
 
 	// Add k to the key report only if it's not already present
@@ -66,6 +70,10 @@ size_t Keyboard_::release(uint8_t k)
 			_keyReport.modifiers &= ~(0x02);	// the left shift modifier
 			k &= 0x7F;
 		}
+    if (k & 0x40) {           // it's an altgr key
+      _keyReport.modifiers &= ~(0x40); // the altGr key
+      k &= 0x3F;
+    }
 	}
 
 	// Test the key report to see if k is present.  Clear it if it exists.
