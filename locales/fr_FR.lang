@@ -67,9 +67,9 @@ const uint8_t _asciimap[128] =
  	0x26|SHIFT,    // 9
  	0x37,            // :
  	0x36,          // ;
- 	0x64,            // <
+ 	0x00,            // < -> TODO
  	0x2e,          // =
- 	0x64|SHIFT,      // >
+ 	0x00|SHIFT,      // > -> TODO
  	0x10|SHIFT,      // ?
  	0x27|ALTGR,      // @
  	0x14|SHIFT,      // A
