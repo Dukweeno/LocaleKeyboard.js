@@ -75,7 +75,7 @@ size_t Keyboard_::release(uint8_t k)
 
     if (_altGrMap)
       if (_altGrMap[oldKey])
-         _keyReport.modifiers |= 0x40;
+         _keyReport.modifiers &= ~(0x40);
   }
 
   // Test the key report to see if k is present.  Clear it if it exists.
