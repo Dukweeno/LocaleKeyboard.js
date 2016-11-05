@@ -3,7 +3,6 @@
  */
 
 #define SHIFT 0x80
-#define ALTGR 0x40
 const uint8_t _asciimap[128] =
 {
  	0x00,             // NUL
@@ -42,7 +41,7 @@ const uint8_t _asciimap[128] =
  	0x2c,		   //  ' '
  	0x38,	         // !
  	0x20,          // "
- 	0x20|ALTGR,    // #
+ 	0x20,          // #
  	0x30,          // $
  	0x34|SHIFT,    // %
  	0x1e,          // &
@@ -71,7 +70,7 @@ const uint8_t _asciimap[128] =
  	0x2e,          // =
  	0x64|SHIFT,      // >
  	0x10|SHIFT,      // ?
- 	0x27|ALTGR,      // @
+ 	0x27,            // @
  	0x14|SHIFT,      // A
  	0x05|SHIFT,      // B
  	0x06|SHIFT,      // C
@@ -98,12 +97,12 @@ const uint8_t _asciimap[128] =
  	0x1b|SHIFT,      // X
  	0x1c|SHIFT,      // Y
  	0x1a|SHIFT,      // Z
- 	0x22|ALTGR,    // [
- 	0x25|ALTGR,    // bslash
- 	0x2d|ALTGR,    // ]
- 	0x26|ALTGR,    // ^
+ 	0x22,          // [
+ 	0x25,          // bslash
+ 	0x2d,          // ]
+ 	0x26,          // ^
  	0x25,          // _
- 	0x24|ALTGR,    // `
+ 	0x24,          // `
  	0x14,          // a
  	0x05,          // b
  	0x06,          // c
@@ -130,9 +129,141 @@ const uint8_t _asciimap[128] =
  	0x1b,          // x
  	0x1c,          // y
  	0x1a,          // z
- 	0x21|ALTGR,    // {
- 	0x23|ALTGR,    // |
- 	0x2e|ALTGR,    // }
- 	0x1f|ALTGR,    // ~
+ 	0x21,    // {
+ 	0x23,    // |
+ 	0x2e,    // }
+ 	0x1f,    // ~
  	0				// DEL
+};
+const bool _altGrMap[128] =
+{
+  false,             // NUL
+  false,             // SOH
+  false,             // STX
+  false,             // ETX
+  false,             // EOT
+  false,             // ENQ
+  false,             // ACK
+  false,             // BEL
+  false,     // BS Backspace
+  false,     // TAB  Tab
+  false,     // LF Enter
+  false,             // VT
+  false,             // FF
+  false,             // CR
+  false,             // SO
+  false,             // SI
+  false,             // DEL
+  false,             // DC1
+  false,             // DC2
+  false,             // DC3
+  false,             // DC4
+  false,             // NAK
+  false,             // SYN
+  false,             // ETB
+  false,             // CAN
+  false,             // EM
+  false,             // SUB
+  false,             // ESC
+  false,             // FS
+  false,             // GS
+  false,             // RS
+  false,             // US
+
+  false,      //  ' '
+  false,          // !
+  false,          // "
+  true,       // #
+  false,          // $
+  false,          // %
+  false,          // &
+  false,          // '
+  false,          // (
+  false,          // )
+  false,          // *
+  false,          // +
+  false,          // ,
+  false,          // -
+  false,    // .
+  false,    // /
+  false,    // 0
+  false,    // 1
+  false,    // 2
+  false,    // 3
+  false,    // 4
+  false,    // 5
+  false,    // 6
+  false,    // 7
+  false,    // 8
+  false,    // 9
+  false,      // :
+  false,      // ;
+  false,        // <
+  false,      // =
+  false,        // >
+  false,      // ?
+  true,       // @
+  false,      // A
+  false,      // B
+  false,      // C
+  false,      // D
+  false,      // E
+  false,      // F
+  false,      // G
+  false,      // H
+  false,      // I
+  false,      // J
+  false,      // K
+  false,      // L
+  false,      // M
+  false,      // N
+  false,      // O
+  false,      // P
+  false,      // Q
+  false,      // R
+  false,      // S
+  false,      // T
+  false,      // U
+  false,      // V
+  false,      // W
+  false,      // X
+  false,      // Y
+  false,      // Z
+  true,     // [
+  true,     // bslash
+  true,     // ]
+  true,     // ^
+  false,          // _
+  true,     // `
+  false,          // a
+  false,          // b
+  false,          // c
+  false,          // d
+  false,          // e
+  false,          // f
+  false,          // g
+  false,          // h
+  false,          // i
+  false,          // j
+  false,          // k
+  false,          // l
+  false,          // m
+  false,          // n
+  false,          // o
+  false,          // p
+  false,          // q
+  false,          // r
+  false,          // s
+  false,          // t
+  false,          // u
+  false,          // v
+  false,          // w
+  false,          // x
+  false,          // y
+  false,          // z
+  true,     // {
+  true,     // |
+  true,     // }
+  true,     // ~
+  0         // DEL
 };
