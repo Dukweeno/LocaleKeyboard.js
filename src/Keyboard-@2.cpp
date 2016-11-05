@@ -14,6 +14,7 @@ size_t Keyboard_::press(uint8_t k)
 		_keyReport.modifiers |= (1<<(k-128));
 		k = 0;
 	} else {				// it's a printing key
+		int oldKey = k;
 		k = pgm_read_byte(_asciimap + k);
 		if (!k) {
 			setWriteError();
@@ -23,10 +24,10 @@ size_t Keyboard_::press(uint8_t k)
 			_keyReport.modifiers |= 0x02;	// the left shift modifier
 			k &= 0x7F;
 		}
-    if (k & 0x40) {           // it's an altgr key
-      _keyReport.modifiers |= 0x40; // the altGr key
-      k &= 0x3F;
-    }
+    
+   if (_altGrMap)
+      if (_altGrMap[oldKey])
+        _keyReport.modifiers |= 0x40;
 	}
 
 	// Add k to the key report only if it's not already present
@@ -62,6 +63,7 @@ size_t Keyboard_::release(uint8_t k)
 		_keyReport.modifiers &= ~(1<<(k-128));
 		k = 0;
 	} else {				// it's a printing key
+		int oldKey = k;
 		k = pgm_read_byte(_asciimap + k);
 		if (!k) {
 			return 0;
@@ -69,11 +71,9 @@ size_t Keyboard_::release(uint8_t k)
 		if (k & 0x80) {							// it's a capital letter or other character reached with shift
 			_keyReport.modifiers &= ~(0x02);	// the left shift modifier
 			k &= 0x7F;
-		}
-    if (k & 0x40) {           // it's an altgr key
-      _keyReport.modifiers &= ~(0x40); // the altGr key
-      k &= 0x3F;
-    }
+	    if (_altGrMap)
+	      if (_altGrMap[oldKey])
+		_keyReport.modifiers |= 0x40;
 	}
 
 	// Test the key report to see if k is present.  Clear it if it exists.
