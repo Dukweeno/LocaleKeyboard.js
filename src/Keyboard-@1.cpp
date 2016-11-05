@@ -25,7 +25,7 @@
 
 //================================================================================
 //================================================================================
-//	Keyboard
+//  Keyboard
 
 static const uint8_t _hidReportDescriptor[] PROGMEM = {
 
@@ -62,8 +62,8 @@ static const uint8_t _hidReportDescriptor[] PROGMEM = {
 
 Keyboard_::Keyboard_(void)
 {
-	static HIDSubDescriptor node(_hidReportDescriptor, sizeof(_hidReportDescriptor));
-	HID().AppendDescriptor(&node);
+  static HIDSubDescriptor node(_hidReportDescriptor, sizeof(_hidReportDescriptor));
+  HID().AppendDescriptor(&node);
 }
 
 void Keyboard_::begin(void)
@@ -76,7 +76,7 @@ void Keyboard_::end(void)
 
 void Keyboard_::sendReport(KeyReport* keys)
 {
-	HID().SendReport(2,keys,sizeof(KeyReport));
+  HID().SendReport(2,keys,sizeof(KeyReport));
 }
 
 extern
