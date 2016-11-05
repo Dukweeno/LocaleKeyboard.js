@@ -24,8 +24,8 @@ size_t Keyboard_::press(uint8_t k)
       _keyReport.modifiers |= 0x02;  // the left shift modifier
       k &= 0x7F;
     }
-    
-   if (_altGrMap)
+
+    if (_altGrMap)
       if (_altGrMap[oldKey])
         _keyReport.modifiers |= 0x40;
   }
@@ -71,9 +71,11 @@ size_t Keyboard_::release(uint8_t k)
     if (k & 0x80) {              // it's a capital letter or other character reached with shift
       _keyReport.modifiers &= ~(0x02);  // the left shift modifier
       k &= 0x7F;
-      if (_altGrMap)
-        if (_altGrMap[oldKey])
-    _keyReport.modifiers |= 0x40;
+    }
+
+    if (_altGrMap)
+      if (_altGrMap[oldKey])
+         _keyReport.modifiers |= 0x40;
   }
 
   // Test the key report to see if k is present.  Clear it if it exists.
