@@ -25,9 +25,10 @@ size_t Keyboard_::press(uint8_t k)
       k &= 0x7F;
     }
 
-    if (_altGrMap)
-      if (_altGrMap[oldKey])
-        _keyReport.modifiers |= 0x40;
+    if (!_altFine)
+      initAltGr();
+    if (_altGrMap[oldKey])
+      _keyReport.modifiers |= 0x40;
   }
 
   // Add k to the key report only if it's not already present
@@ -73,9 +74,8 @@ size_t Keyboard_::release(uint8_t k)
       k &= 0x7F;
     }
 
-    if (_altGrMap)
-      if (_altGrMap[oldKey])
-         _keyReport.modifiers &= ~(0x40);
+    if (_altGrMap[oldKey])
+      _keyReport.modifiers &= ~(0x40);
   }
 
   // Test the key report to see if k is present.  Clear it if it exists.

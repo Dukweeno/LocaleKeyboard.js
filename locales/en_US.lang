@@ -135,3 +135,10 @@ const uint8_t _asciimap[128] =
   0x35|SHIFT,    // ~
   0        // DEL
 };
+
+// Init var         
+bool _altGrMap[128];
+bool _altFine = false;
+
+// Individually define all needed char
+void initAltGr() {_altFine = true;}
