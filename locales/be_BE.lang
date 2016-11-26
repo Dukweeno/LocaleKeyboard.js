@@ -1,7 +1,3 @@
-/*
- * _asciimap Belgian Dot keyboard fixed by KevinDenys
- */
- 
 #define SHIFT 0x80
 const uint8_t _asciimap[128] =
 {
@@ -99,7 +95,7 @@ const uint8_t _asciimap[128] =
    0x22,          // [
    0x64,          // bslash
    0x2d,          // ]
-   0x23,          // ^
+   0x22,          // ^
    0x2e|SHIFT,          // _
    0x24,          // `
    0x14,          // a
@@ -135,11 +131,10 @@ const uint8_t _asciimap[128] =
    0        // DEL
 };
 
- 
 // Init var
 bool _altGrMap[128];
 bool _altFine = false;
- 
+
 // Individually define all needed char
 void initAltGr() {
   _altFine = true;
@@ -147,13 +142,10 @@ void initAltGr() {
   _altGrMap[35] = true; // #
   _altGrMap[64] = true; // @
   _altGrMap[91] = true; // [
-  _altGrMap[92] = true; // bslash
+  _altGrMap[92] = true; // bslash fixed
   _altGrMap[93] = true; // ]
-  _altGrMap[94] = true; // ^
-  
   _altGrMap[96] = true; // `
-  
   _altGrMap[123] = true; // {
-  _altGrMap[125] = true; // |
+  _altGrMap[124] = true; // | fixed
   _altGrMap[126] = true; // ~
 }
