@@ -43,7 +43,7 @@ const uint8_t _asciimap[128] =
    0x21,          // '
    0x22,          // (
    0x2d,          // )
-   0x31,          // *
+   0x30|SHIFT,          // *
    0x38|SHIFT,    // +
    0x10,          // ,
    0x2e,          // -
@@ -94,7 +94,7 @@ const uint8_t _asciimap[128] =
    0x1a|SHIFT,      // Z
    0x22,          // [
    0x64,          // bslash
-   0x2d,          // ]
+   0x30,          // ]
    0x22,          // ^
    0x2e|SHIFT,          // _
    0x24,          // `
@@ -126,8 +126,8 @@ const uint8_t _asciimap[128] =
    0x1a,          // z
    0x21,    // {
    0x1e,    // |
-   0x2e,    // }
-   0x1f,    // ~
+   0x27,    // }
+   0x38,    // ~
    0        // DEL
 };
 
@@ -147,5 +147,6 @@ void initAltGr() {
   _altGrMap[96] = true; // `
   _altGrMap[123] = true; // {
   _altGrMap[124] = true; // | fixed
-  _altGrMap[126] = true; // ~
+  _altGrMap[125] = true; // } fixed
+  _altGrMap[127] = true; // ~
 }
