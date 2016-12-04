@@ -1,3 +1,11 @@
+/*
+*   The following character can't be typed:
+*   "ß´üöä°§ÜÖÄ²³€µ"
+*   If you try to type these you get this result: ('"' can be typed)
+*   "t ä´z  qk   2 "
+*   As you see you get the wrong character. Spaces mean you get nothing or the script crashes.
+*/
+
 #define SHIFT 0x80
 const uint8_t _asciimap[128] =
 {
