@@ -157,5 +157,4 @@ void initAltGr() {
   _altGrMap[35] = true; // #
   _altGrMap[94] = true; // ^
   _altGrMap[96] = true; // `
-  _spaceMap[255] = true; // ESPACIO
  }
