@@ -15,9 +15,9 @@ const uint8_t _asciimap[128] =
   0x00,             // ENQ
   0x00,             // ACK
   0x00,             // BEL
-  0x2a,     	    // BS  Backspace
-  0x2b,             // TAB  Tab
-  0x28,             // LF  Enter
+  0x2a,      // BS  Backspace
+  0x2b,      // TAB  Tab
+  0x28,      // LF  Enter
   0x00,             // VT
   0x00,             // FF
   0x00,             // CR
@@ -43,11 +43,11 @@ const uint8_t _asciimap[128] =
   0x2c,          //  ' '
   0x1e|SHIFT,    // !
   0x1f|SHIFT,    // "
-  0x20,    // #
+  0x20,          // #
   0x21|SHIFT,    // $
   0x22|SHIFT,    // %
   0x23|SHIFT,    // &
-  0x2d,    // '
+  0x2d,          // '
   0x25|SHIFT,    // (
   0x26|SHIFT,    // )
   0x30|SHIFT,    // *
@@ -104,7 +104,7 @@ const uint8_t _asciimap[128] =
   0x30,          // ]
   0x2f|SHIFT,    // ^
   0x38|SHIFT,    // _
-  0x2f, 	 // `
+  0x2f, 	       // `
   0x04,          // a
   0x05,          // b
   0x06,          // c
@@ -156,5 +156,4 @@ void initAltGr() {
   _altGrMap[124] = true; // |
   _altGrMap[64] = true;  // @
   _altGrMap[35] = true; // #
-  
 }
