@@ -1,3 +1,4 @@
+## THIS PROJECT IS DISCONTINUED, It's finally merged into Duckuino.
 # LocaleKeyboard.js
 Keyboard Arduino lib generator, to be used with different layouts.
 
